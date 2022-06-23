@@ -362,8 +362,8 @@ local highlight_groups = {
     debugPC = 'ColorColumn',
     LineNr  = {fg=gray_7},
     QuickFixLine = {fg=selection, bg=purple, style={'reverse', 'bold'}},
-    Visual    = {bg=selection},
-    VisualNOS = {bg=selection},
+    Visual    = {fg=background, bg=selection},
+    VisualNOS = {fg=background, bg=selection},
 
     --[[ 4.2.4. Popup Menu]]
     Pmenu = {fg=gray_2, bg=gray_9},
