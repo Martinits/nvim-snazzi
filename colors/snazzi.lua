@@ -282,7 +282,7 @@ local highlight_group_normal = {fg=foreground, bg=background}
 local highlight_groups = {
     --[[ 4.1. Text Analysis ]]
     Comment = {fg=gray_8, style='italic'},
-    NonText = {fg=foreground},
+    NonText = {fg=gray_6},
     EndOfBuffer = {fg=invisibles},
     Whitespace  = 'NonText',
 
