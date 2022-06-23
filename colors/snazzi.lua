@@ -120,29 +120,29 @@ vim.g.colors_name = 'snazzi'
 --local purple       = {'#cf55f0', 171, 'magenta'}
 --local purple_light = {'#af60af', 133, 'darkmagenta'}
 
-local background     = {'#282a36', 237, 'black'}
-local foreground     = {'#eff0eb', 253, 'white'}
-local red            = {'#ff5c57', 203, 'red'}
-local yellow         = {'#f3f99d', 229, 'yellow'}
-local green          = {'#5af78e',  84, 'green'}
-local blue           = {'#57c7ff',  81, 'blue'}
-local cyan           = {'#9aedfe', 117, 'cyan'}
-local purple         = {'#ff6ac1', 205, 'purple'}
-local orange         = {'#ff9f43', 214, 'orange'}
-local brown          = {'#b2643c', 172, 'brown'}
+local background     = {'#282A36', 237, 'black'}
+local foreground     = {'#EFF0Eb', 253, 'white'}
+local red            = {'#FF5C57', 203, 'red'}
+local yellow         = {'#F3F99D', 229, 'yellow'}
+local green          = {'#5AF78E',  84, 'green'}
+local blue           = {'#57C7FF',  81, 'blue'}
+local cyan           = {'#9AEDFE', 117, 'cyan'}
+local purple         = {'#FF6AC1', 205, 'purple'}
+local orange         = {'#FF9F43', 214, 'orange'}
+local brown          = {'#B2643C', 172, 'brown'}
 local pink           = {'#FF5370', 217, 'pink'}
 
 local gray_0         = {'#F9F9F9', 254, 'white'}
-local gray_1         = {'#f9f9ff', 254, 'white'}
-local gray_2         = {'#eff0eb', 253, 'white'}
-local gray_3         = {'#e2e4e5', 252, 'darkgrey'}
-local gray_4         = {'#a1a6a8', 251, 'darkgrey'}
+local gray_1         = {'#F9F9FF', 254, 'white'}
+local gray_2         = {'#Eff0EB', 253, 'white'}
+local gray_3         = {'#E2E4E5', 252, 'darkgrey'}
+local gray_4         = {'#A1A6A8', 251, 'darkgrey'}
 local gray_5         = {'#848688', 250, 'darkgrey'}
-local gray_6         = {'#5e6c70', 247, 'grey'}
+local gray_6         = {'#5E6C70', 247, 'grey'}
 local gray_7         = {'#536991', 245, 'grey'}
 local gray_8         = {'#606580', 243, 'grey'}
-local gray_9         = {'#3a3d5d', 240, 'black'}
-local gray_11        = {'#282a36', 237, 'black'}
+local gray_9         = {'#3A3D5D', 240, 'black'}
+local gray_11        = {'#282A36', 237, 'black'}
 local gray_12        = {'#192224', 235, 'black'}
 
 local invisibles     = {'#65737E', 239, 'grey'}
@@ -151,7 +151,7 @@ local caret          = {'#272727', 243, 'black'}
 local selection      = {'#C2EFD1', 157, 'green'}
 local guides         = {'#B0BEC5', 249, 'darkgrey'}
 local line_numbers   = {'#B5E5FC', 116, 'blue'}
-local lsp_background = {'#e2e3e9', 253, 'white'}
+local lsp_background = {'#E2E3E9', 253, 'white'}
 local line_highlight = {'#ECF0F1', 255, 'white'}
 local disabled       = {'#464B5D',  60, 'grey'}
 
@@ -360,7 +360,7 @@ local highlight_groups = {
     CursorLineNr = {fg=yellow},
     debugBreakpoint = 'ErrorMsg',
     debugPC = 'ColorColumn',
-    LineNr  = {fg=line_numbers},
+    LineNr  = {fg=gray_7},
     QuickFixLine = {fg=selection, bg=purple, style={'reverse', 'bold'}},
     Visual    = {bg=selection},
     VisualNOS = {bg=selection},
