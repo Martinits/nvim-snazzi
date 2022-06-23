@@ -276,7 +276,7 @@ local darkcyan = {'#04898A'}
 
 --[[ These are the ones you should edit. ]]
 -- This is the only highlight that must be defined separately.
-local highlight_group_normal = {fg=foreground}
+local highlight_group_normal = {fg=foreground, bg=background}
 
 -- This is where the rest of your highlights should go.
 local highlight_groups = {
@@ -356,7 +356,7 @@ local highlight_groups = {
 
     --[[ 4.2.3. Conditional Line Highlighting]]
     Conceal = {fg=blue},
-    CursorLine   = {bg=selection},
+    CursorLine   = {bg=gray_9},
     CursorLineNr = {fg=yellow},
     debugBreakpoint = 'ErrorMsg',
     debugPC = 'ColorColumn',
@@ -366,10 +366,10 @@ local highlight_groups = {
     VisualNOS = {bg=selection},
 
     --[[ 4.2.4. Popup Menu]]
-    Pmenu = {fg=foreground, bg=selection},
-    PmenuSbar = {fg=foreground, bg=background},
-    PmenuSel  = {fg=yellow, bg=disabled},
-    PmenuThumb = {fg=foreground, bg=yellow},
+    Pmenu = {fg=gray_2, bg=gray_9},
+    PmenuSbar = {fg=foreground, bg=gray_5},
+    PmenuSel  = {fg=green, bg=gray_9},
+    PmenuThumb = {bg=gray_4},
     WildMenu = {fg=red, bg=selection, style='bold'},
 
     --[[ 4.2.5. Folds]]
