@@ -335,8 +335,8 @@ local highlight_groups = {
     Ignore = {fg=gray_6},
     Error = {fg=red, bg=gray_11},
     Todo = {fg=yellow, style={'italic', 'bold'}},
-    Hint = {fg=gray_12, bg=purple, style='bold'},
-    Info = {fg=gray_12, bg=pink, style='bold'},
+    Hint = {fg=gray_12, bg=green, style='bold'},
+    Info = {fg=gray_12, bg=blue, style='bold'},
     Warning = {fg=gray_12, bg=orange, style='bold'},
 
     --[[ 4.2... Editor UI  ]]
