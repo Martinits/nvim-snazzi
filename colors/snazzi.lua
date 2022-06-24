@@ -141,7 +141,7 @@ local gray_5         = {'#848688', 250, 'darkgrey'}
 local gray_6         = {'#5E6C70', 247, 'grey'}
 local gray_7         = {'#536991', 245, 'grey'}
 local gray_8         = {'#606580', 243, 'grey'}
-local gray_9         = {'#3A3D5D', 240, 'black'}
+local gray_9         = {'#3A3D4D', 240, 'black'}
 local gray_11        = {'#282A36', 237, 'black'}
 local gray_12        = {'#192224', 235, 'black'}
 
@@ -292,7 +292,7 @@ local highlight_groups = {
     Character = {fg=red},
     Number  = {fg=green},
     Boolean = {fg=purple},
-    Float   = {fg=orange},
+    Float   = {fg=pink},
 
     --[[ 4.1.2. Identifiers]]
     Identifier = {fg=red},
@@ -319,7 +319,7 @@ local highlight_groups = {
     Type         = {fg=yellow, style='bold'},
     StorageClass = {fg=yellow, style='bold'},
     Structure = {fg=purple, style='bold'},
-    Typedef = {fg=yellow, style='bold'},
+    Typedef = {fg=darkyellow, style='bold'},
 
     --[[ 4.1.6. Edge Cases]]
     Special = {fg=blue, style='italic'},
@@ -367,7 +367,7 @@ local highlight_groups = {
 
     --[[ 4.2.4. Popup Menu]]
     Pmenu = {fg=gray_2, bg=gray_9},
-    PmenuSbar = {fg=foreground, bg=gray_5},
+    PmenuSbar = {bg=gray_6},
     PmenuSel  = {fg=green, bg=gray_9},
     PmenuThumb = {bg=gray_4},
     WildMenu = {fg=red, bg=selection, style='bold'},
@@ -402,7 +402,7 @@ local highlight_groups = {
     HintMsg  = {fg=purple, style='italic'},
     InfoMsg  = {fg=pink, style='italic'},
     ModeMsg  = {fg=green},
-    WarningMsg = {fg=red},
+    WarningMsg = {fg=orange},
     Question   = {fg=blue, style='bold'},
 
     --[[ 4.2.11. LSP / Diagnostics ]]
