@@ -290,7 +290,7 @@ local highlight_groups = {
     Constant = {fg=green},
     String = {fg=orange, style='italic'},
     Character = {fg=red},
-    Number  = {fg=green},
+    Number  = {fg=pink},
     Boolean = {fg=purple},
     Float   = {fg=pink},
 
