@@ -142,8 +142,8 @@ local gray_6         = {'#5E6C70', 247, 'grey'}
 local gray_7         = {'#536991', 245, 'grey'}
 local gray_8         = {'#606580', 243, 'grey'}
 local gray_9         = {'#3A3D4D', 240, 'black'}
-local gray_11        = {'#282A36', 237, 'black'}
-local gray_12        = {'#192224', 235, 'black'}
+local gray_10        = {'#282A36', 237, 'black'}
+local gray_11        = {'#192224', 235, 'black'}
 
 local invisibles     = {'#65737E', 239, 'grey'}
 local comments       = {'#90A4AE', 109, 'grey'}
@@ -331,13 +331,13 @@ local highlight_groups = {
     Debug = {fg=red},
 
     --[[ 4.1.7. Help Syntax]]
-    Underlined = {fg=blue, bg=gray_12, style='underline'},
+    Underlined = {fg=blue, bg=gray_11, style='underline'},
     Ignore = {fg=gray_6},
-    Error = {fg=red, bg=gray_11},
+    Error = {fg=red, bg=gray_10},
     Todo = {fg=yellow, style={'italic', 'bold'}},
-    Hint = {fg=gray_12, bg=green, style='bold'},
-    Info = {fg=gray_12, bg=blue, style='bold'},
-    Warning = {fg=gray_12, bg=orange, style='bold'},
+    Hint = {fg=gray_11, bg=gray_8, style='bold'},
+    Info = {fg=gray_11, bg=blue, style='bold'},
+    Warning = {fg=gray_11, bg=orange, style='bold'},
 
     --[[ 4.2... Editor UI  ]]
     --[[ 4.2.1. Status Line]]
@@ -909,7 +909,7 @@ local highlight_groups = {
     --[[ 4.4.9. barbar.nvim ]]
     BufferCurrent       = 'TabLineSel',
     BufferCurrentIndex  = function(self) return {fg=self.InfoMsg.fg, bg=self.BufferCurrent.bg} end,
-    BufferCurrentMod    = {fg=brown, bg=gray_12, style='bold'},
+    BufferCurrentMod    = {fg=brown, bg=gray_11, style='bold'},
     BufferCurrentSign   = 'HintMsg',
     BufferCurrentTarget = 'BufferCurrentSign',
 
@@ -960,12 +960,12 @@ local highlight_groups = {
     TodoFgTODO = {fg=cyan, style='italic'},
     TodoFgWARN = function(self) return {fg=self.WarningMsg.fg} end,
 
-    TodoBgFIX = function(self) return {fg=gray_12, bg=self.ErrorMsg.fg, style={'bold', 'italic', 'nocombine'}} end,
-    TodoBgHACK = function(self) return {fg=gray_12, bg=self.Todo.bg, style={'bold', 'italic', 'nocombine'}} end,
-    TodoBgNOTE = function(self) return {fg=gray_12, bg=self.Hint.bg, style={'bold', 'italic', 'nocombine'}} end,
-    TodoBgPERF = function(self) return {fg=gray_12, bg=self.Info.bg, style={'bold', 'italic', 'nocombine'}} end,
-    TodoBgTODO = {fg=gray_12, bg=cyan, style={'bold', 'italic', 'nocombine'}},
-    TodoBgWARN = function(self) return {fg=gray_12, bg=self.Warning.bg, style={'bold', 'italic', 'nocombine'}} end,
+    TodoBgFIX = function(self) return {fg=gray_11, bg=self.ErrorMsg.fg, style={'bold', 'italic', 'nocombine'}} end,
+    TodoBgHACK = function(self) return {fg=gray_11, bg=self.Todo.bg, style={'bold', 'italic', 'nocombine'}} end,
+    TodoBgNOTE = function(self) return {fg=gray_11, bg=self.Hint.bg, style={'bold', 'italic', 'nocombine'}} end,
+    TodoBgPERF = function(self) return {fg=gray_11, bg=self.Info.bg, style={'bold', 'italic', 'nocombine'}} end,
+    TodoBgTODO = {fg=gray_11, bg=cyan, style={'bold', 'italic', 'nocombine'}},
+    TodoBgWARN = function(self) return {fg=gray_11, bg=self.Warning.bg, style={'bold', 'italic', 'nocombine'}} end,
 
     TodoSignFIX  = 'TodoFgFIX',
     TodoSignHACK = 'TodoFgHACK',
@@ -1066,7 +1066,7 @@ local highlight_groups = {
 ]]
 
 local terminal_colors = {
-    [1]  = gray_12,
+    [1]  = gray_11,
     [2]  = brown,
     [3]  = darkgreen,
     [4]  = orange,
