@@ -368,7 +368,7 @@ local highlight_groups = {
     --[[ 4.2.4. Popup Menu]]
     Pmenu = {fg=gray_2, bg=gray_9},
     PmenuSbar = {bg=gray_6},
-    PmenuSel  = {fg=green, bg=gray_9},
+    PmenuSel  = {fg=green, bg=gray_8},
     PmenuThumb = {bg=gray_4},
     WildMenu = {fg=red, bg=selection, style='bold'},
 
