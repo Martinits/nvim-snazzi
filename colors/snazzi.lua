@@ -125,6 +125,7 @@ local foreground     = {'#EFF0Eb', 253, 'white'}
 local red            = {'#FF5C57', 203, 'red'}
 local yellow         = {'#F3F99D', 229, 'yellow'}
 local green          = {'#5AF78E',  84, 'green'}
+local light_green    = {'#9EEDA7',  84, 'green'}
 local blue           = {'#57C7FF',  81, 'blue'}
 local cyan           = {'#9AEDFE', 117, 'cyan'}
 local purple         = {'#FF6AC1', 205, 'purple'}
@@ -295,7 +296,7 @@ local highlight_groups = {
     Float   = {fg=pink},
 
     --[[ 4.1.2. Identifiers]]
-    Identifier = {fg=red},
+    Identifier = {fg=light_green},
     Function = {fg=blue, style='bold'},
 
     --[[ 4.1.3. Syntax]]
@@ -899,37 +900,62 @@ local highlight_groups = {
     NERDTreeLinkTarget = 'Tag',
 
     --[[ 4.4.8. nvim-treesitter ]]
-    TSConstBuiltin = 'TSConstant',
-    TSConstructor = 'TSFunction',
-    TSDanger = 'ErrorMsg',
-    TSFuncBuiltin = 'TSFunction',
-    TSTag = 'Tag',
-    TSWarning = 'WarningMsg',
+    ['@constant.builtin'] = '@constant',
+    ['@constant.macro'] = '@define',
+    ['@constructor'] = '@function',
+    ['@function.builtin'] = '@function',
+    ['@function.macro'] = '@macro',
+    ['@namespace'] = 'Directory',
+    ['@string.escape'] = '@string.special',
+    ['@tag'] = 'Tag',
+    ['@text.danger'] = 'ErrorMsg',
+    ['@text.uri'] = '@test.underlined',
+    ['@text.warning'] = 'WarningMsg',
 
     --[[ 4.4.9. barbar.nvim ]]
+    BufferAlternate       = function(self) return {fg = self.BufferVisible.fg, bg = gray_9} end,
+    BufferAlternateERROR  = function(self) return {fg = self.ErrorMsg.fg, bg = gray_9} end,
+    BufferAlternateHINT   = function(self) return {fg = self.HintMsg.fg, bg = gray_9} end,
+    BufferAlternateIndex  = function(self) return {fg = self.Number.fg, bg = gray_9} end,
+    BufferAlternateINFO   = function(self) return {fg = self.InfoMsg.fg, bg = gray_9} end,
+    BufferAlternateMod    = function(self) return {fg = self.BufferVisibleMod.fg, bg = gray_9, style = 'bold'} end,
+    BufferAlternateSign   = {fg = blue, bg = gray_9},
+    BufferAlternateTarget = function(self) return {fg = self.BufferAlternateSign.fg, bg = gray_9, style='italic'} end,
+    BufferAlternateWARN   = function(self) return {fg = self.WarningMsg.fg, bg = gray_9} end,
+
+
     BufferCurrent       = 'TabLineSel',
-    BufferCurrentIndex  = function(self) return {fg=self.InfoMsg.fg, bg=self.BufferCurrent.bg} end,
+    BufferCurrentERROR  = function(self) return {fg = self.ErrorMsg.fg, bg = self.BufferCurrent.bg} end,
+    BufferCurrentHINT   = function(self) return {fg = self.HintMsg.fg, bg = self.BufferCurrent.bg} end,
+    BufferCurrentIndex  = function(self) return {fg = self.Number.fg, bg = self.BufferCurrent.bg} end,
+    BufferCurrentINFO   = function(self) return {fg = self.InfoMsg.fg, bg = self.BufferCurrent.bg} end,
     BufferCurrentMod    = {fg=brown, bg=gray_11, style='bold'},
     BufferCurrentSign   = 'HintMsg',
     BufferCurrentTarget = 'BufferCurrentSign',
+    BufferCurrentWARN   = function(self) return {fg = self.WarningMsg.fg, bg = self.BufferCurrent.bg} end,
 
     BufferInactive       = 'BufferVisible',
-    BufferInactiveIndex  = function(self) return {fg=self.InfoMsg.fg, bg=self.BufferInactive.bg} end,
+    BufferInactiveERROR  = function(self) return {fg = self.ErrorMsg.fg, bg = self.BufferInactive.bg} end,
+    BufferInactiveHINT   = function(self) return {fg = self.HintMsg.fg, bg = self.BufferInactive.bg} end,
+    BufferInactiveIndex  = function(self) return {fg = self.Number.fg, bg = self.BufferInactive.bg} end,
+    BufferInactiveINFO   = function(self) return {fg = self.InfoMsg.fg, bg = self.BufferInactive.bg} end,
     BufferInactiveMod    = 'BufferVisibleMod',
     BufferInactiveSign   = 'BufferVisibleSign',
     BufferInactiveTarget = 'BufferVisibleTarget',
+    BufferInactiveWARN   = function(self) return {fg = self.WarningMsg.fg, bg = self.BufferInactive.bg} end,
 
     BufferTabpages    = {style='bold'},
     BufferTabpageFill = 'TabLineFill',
 
     BufferVisible       = 'TabLine',
-    BufferVisibleIndex  = function(self) return {fg=self.InfoMsg.fg, bg=self.BufferVisible.bg} end,
+    BufferVisibleERROR  = function(self) return {fg = self.ErrorMsg.fg, bg = self.BufferVisible.bg} end,
+    BufferVisibleHINT   = function(self) return {fg = self.HintMsg.fg, bg = self.BufferVisible.bg} end,
+    BufferVisibleIndex  = function(self) return {fg = self.Number.fg, bg = self.BufferVisible.bg} end,
+    BufferVisibleINFO   = function(self) return {fg = self.InfoMsg.fg, bg = self.BufferVisible.bg} end,
     BufferVisibleMod    = function(self) return {fg=gray_0, bg=self.BufferVisible.bg, style='italic'} end,
-    BufferVisibleSign   = 'BufferVisible',
-    BufferVisibleTarget = function(self)
-        local super = self.BufferVisibleMod
-        return {fg=super.fg, bg=super.bg, style='bold'}
-    end,
+    BufferVisibleSign   = function(self) return {fg = self.BufferVisibleMod.fg, bg = self.BufferVisibleMod.bg, style = 'bold'} end,
+    BufferVisibleTarget = 'BufferVisibleSign',
+    BufferVisibleWARN   = function(self) return {fg = self.WarningMsg.fg, bg = self.BufferVisible.bg} end,
 
     --[[ 4.4.10. vim-sandwhich ]]
     OperatorSandwichChange = 'DiffText',
@@ -975,35 +1001,35 @@ local highlight_groups = {
     TodoSignWARN = 'TodoFgWARN',
 
     --[[ 4.4.16. nvim-cmp ]]
-    CmpItemAbbrDefault = 'Ignore',
-    CmpItemAbbrMatchDefault = 'Underlined',
-    CmpItemAbbrMatchFuzzyDefault = {fg=highlight_group_normal.fg, style={'nocombine', 'underline'}},
-    CmpItemKindClassDefault = 'CmpItemKindStructDefault',
-    CmpItemKindColorDefault = 'Label',
-    CmpItemKindConstantDefault = 'Constant',
-    CmpItemKindConstructorDefault = 'CmpItemKindMethodDefault',
-    CmpItemKindDefault = 'Type',
-    CmpItemKindEnumDefault = 'CmpItemKindStructDefault',
-    CmpItemKindEnumMemberDefault = 'CmpItemKindConstantDefault',
-    CmpItemKindEventDefault = 'Repeat',
-    CmpItemKindFieldDefault = 'Identifier',
-    CmpItemKindFileDefault = 'Directory',
-    CmpItemKindFolderDefault = 'CmpItemKindFileDefault',
-    CmpItemKindFunctionDefault = 'Function',
-    CmpItemKindInterfaceDefault = 'Type',
-    CmpItemKindKeywordDefault = 'Keyword',
-    CmpItemKindMethodDefault = 'CmpItemKindFunctionDefault',
-    CmpItemKindModuleDefault = 'Include',
-    CmpItemKindOperatorDefault = 'Operator',
-    CmpItemKindPropertyDefault = 'CmpItemKindFieldDefault',
-    CmpItemKindReferenceDefault = 'StorageClass',
-    CmpItemKindSnippetDefault = 'Special',
-    CmpItemKindStructDefault = 'Structure',
-    CmpItemKindTextDefault = 'String',
-    CmpItemKindTypeParameterDefault = 'Typedef',
-    CmpItemKindUnitDefault = 'CmpItemKindStructDefault',
-    CmpItemKindValueDefault = 'CmpItemKindConstantDefault',
-    CmpItemKindVariableDefault = 'Identifier',
+    CmpItemAbbr = 'Ignore',
+    CmpItemAbbrMatch = 'Underlined',
+    CmpItemAbbrMatchFuzzy = {fg = highlight_group_normal.fg, style = {'nocombine', 'underline'}},
+    CmpItemKindClass = 'CmpItemKindStruct',
+    CmpItemKindColor = 'Label',
+    CmpItemKindConstant = 'Constant',
+    CmpItemKindConstructor = 'CmpItemKindMethod',
+    CmpItemKind = 'Type',
+    CmpItemKindEnum = 'CmpItemKindStruct',
+    CmpItemKindEnumMember = 'CmpItemKindConstant',
+    CmpItemKindEvent = 'Repeat',
+    CmpItemKindField = 'Identifier',
+    CmpItemKindFile = 'Directory',
+    CmpItemKindFolder = 'CmpItemKindFile',
+    CmpItemKindFunction = 'Function',
+    CmpItemKindInterface = 'Type',
+    CmpItemKindKeyword = 'Keyword',
+    CmpItemKindMethod = 'CmpItemKindFunction',
+    CmpItemKindModule = 'Include',
+    CmpItemKindOperator = 'Operator',
+    CmpItemKindProperty = 'CmpItemKindField',
+    CmpItemKindReference = 'StorageClass',
+    CmpItemKindSnippet = 'Special',
+    CmpItemKindStruct = 'Structure',
+    CmpItemKindText = 'String',
+    CmpItemKindTypeParameter = 'Typedef',
+    CmpItemKindUnit = 'CmpItemKindStruct',
+    CmpItemKindValue = 'CmpItemKindConstant',
+    CmpItemKindVariable = 'Identifier',
 
     --[[ 4.4.17. packer.nvim ]]
     packerFail = 'ErrorMsg',
@@ -1024,6 +1050,7 @@ local highlight_groups = {
 
     --[[ 4.4.19. symbols-outline.nvim ]]
     FocusedSymbol = {},
+    SymbolsOutlineConnector = 'Delimiter',
 
     --[[ 4.4.20. mini.nvim ]]
     MiniJump = 'MiniJump2dSpot',
