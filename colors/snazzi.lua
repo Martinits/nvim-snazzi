@@ -372,7 +372,7 @@ local highlight_groups = {
     PmenuSbar = {bg=gray_6},
     PmenuSel  = {fg=green, bg=gray_8},
     PmenuThumb = {bg=gray_4},
-    WildMenu = {fg=red, bg=selection, style='bold'},
+    WildMenu = {fg=gray_5, bg=darkmagenta, style='bold'},
 
     --[[ 4.2.5. Folds]]
     FoldColumn = {fg=blue},
@@ -385,9 +385,9 @@ local highlight_groups = {
     DiffText   = {fg=blue},
 
     --[[ 4.2.7. Searching]]
-    IncSearch  = {fg=selection, bg=purple,  style={'reverse', 'bold'}},
+    IncSearch  = {fg=selection, bg=darkmagenta,  style={'reverse', 'bold'}},
     MatchParen = {fg=cyan, style='bold'},
-    Search = {fg=selection, bg=purple, style={'reverse', 'bold'}},
+    Search = {fg=selection, bg=darkmagenta, style={'reverse', 'bold'}},
 
     --[[ 4.2.8. Spelling]]
     SpellBad   = {fg=red, style={'underline', 'italic'}},
