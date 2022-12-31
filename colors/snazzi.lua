@@ -162,6 +162,7 @@ local darkyellow = {'#EED202'}
 local darkblue = {'#04058A'}
 local darkmagenta = {'#88058A'}
 local darkcyan = {'#04898A'}
+local darkorange = {'#BB6A04'}
 
 --[[ Step 4: highlights
     You can define highlight groups like this:
@@ -334,11 +335,11 @@ local highlight_groups = {
     --[[ 4.1.7. Help Syntax]]
     Underlined = {fg=blue, bg=gray_11, style='underline'},
     Ignore = {fg=gray_6},
-    Error = {fg=red, bg=gray_10},
-    Todo = {fg=yellow, style={'italic', 'bold'}},
-    Hint = {fg=gray_11, bg=gray_8, style='bold'},
-    Info = {fg=gray_11, bg=blue, style='bold'},
-    Warning = {fg=gray_11, bg=orange, style='bold'},
+    Error = {fg=darkred, bg=gray_11, style='bold'},
+    Todo = {fg=darkyellow, style={'italic', 'bold'}},
+    Hint = {fg=gray_7, bg=gray_11, style='bold'},
+    Info = {fg=darkblue, bg=gray_11, style='bold'},
+    Warning = {fg=darkorange, bg=gray_11, style='bold'},
 
     --[[ 4.2... Editor UI  ]]
     --[[ 4.2.1. Status Line]]
