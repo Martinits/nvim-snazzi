@@ -123,6 +123,7 @@ vim.g.colors_name = 'snazzi'
 local background     = {'#282A36', 237, 'black'}
 local foreground     = {'#EFF0Eb', 253, 'white'}
 local red            = {'#FF5C57', 203, 'red'}
+local light_red      = {'#F36E7A', 203, 'red'}
 local yellow         = {'#F3F99D', 229, 'yellow'}
 local green          = {'#5AF78E',  84, 'green'}
 local light_green    = {'#9EEDA7',  84, 'green'}
