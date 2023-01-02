@@ -352,7 +352,7 @@ local highlight_groups = {
     FloatBorder = {fg=gray_4},
     TabLine = {fg=foreground, bg=background},
     TabLineFill = {fg=foreground, bg=background},
-    TabLineSel = {fg=green, bg=yellow},
+    TabLineSel = {fg=foreground, bg=cyan},
     Title = {fg=blue, style='bold'},
     VertSplit = {fg=selection, bg=background},
 
