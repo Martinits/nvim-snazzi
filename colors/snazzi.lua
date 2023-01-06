@@ -122,7 +122,7 @@ vim.g.colors_name = 'snazzi'
 
 local background     = {'#282A36', 237, 'black'}
 local foreground     = {'#EFF0Eb', 253, 'white'}
-local red            = {'#FF5C57', 203, 'red'}
+local red            = {'#FF4848', 203, 'red'}
 local light_red      = {'#F36E7A', 203, 'red'}
 local yellow         = {'#F3F99D', 229, 'yellow'}
 local green          = {'#5AF78E',  84, 'green'}
@@ -132,7 +132,7 @@ local cyan           = {'#9AEDFE', 117, 'cyan'}
 local purple         = {'#FF6AC1', 205, 'purple'}
 local orange         = {'#FF9F43', 214, 'orange'}
 local brown          = {'#B2643C', 172, 'brown'}
-local pink           = {'#FF5370', 217, 'pink'}
+local pink           = {'#F46E95', 217, 'pink'}
 
 local gray_0         = {'#F9F9F9', 254, 'white'}
 local gray_1         = {'#F9F9FF', 254, 'white'}
@@ -292,7 +292,7 @@ local highlight_groups = {
     --[[ 4.1.1. Literals]]
     Constant = {fg=green},
     String = {fg=orange, style='italic'},
-    Character = {fg=red},
+    Character = {fg=light_red},
     Number  = {fg=pink},
     Boolean = {fg=purple},
     Float   = {fg=pink},
@@ -315,7 +315,7 @@ local highlight_groups = {
     PreProc = {fg=red},
     Include = {fg=blue},
     Define = {fg=purple},
-    Macro  = {fg=red},
+    Macro  = {fg=light_red},
     PreCondit = {fg=purple},
 
     --[[ 4.1.5. Semantics]]
@@ -334,13 +334,13 @@ local highlight_groups = {
     Debug = {fg=red},
 
     --[[ 4.1.7. Help Syntax]]
-    Underlined = {fg=blue, bg=gray_11, style='underline'},
+    Underlined = {fg=blue, style='underline'},
     Ignore = {fg=gray_6},
-    Error = {fg=darkred, bg=gray_11, style='bold'},
+    Error = {fg=darkred, style='bold'},
     Todo = {fg=darkyellow, style={'italic', 'bold'}},
-    Hint = {fg=gray_7, bg=gray_11, style='bold'},
-    Info = {fg=darkblue, bg=gray_11, style='bold'},
-    Warning = {fg=darkorange, bg=gray_11, style='bold'},
+    Hint = {fg=darkgreen, style='bold'},
+    Info = {fg=darkblue, style='bold'},
+    Warning = {fg=darkorange, style='bold'},
 
     --[[ 4.2... Editor UI  ]]
     --[[ 4.2.1. Status Line]]
@@ -401,12 +401,12 @@ local highlight_groups = {
     SignColumn  = {fg=foreground},
 
     --[[ 4.2.10. Messages]]
-    ErrorMsg = {fg=red, bg=background},
-    HintMsg  = {fg=darkcyan, style='italic'},
-    InfoMsg  = {fg=pink, style='italic'},
-    ModeMsg  = {fg=green},
+    ErrorMsg = {fg=red},
+    HintMsg  = {fg=green},
+    InfoMsg  = {fg=blue},
+    ModeMsg  = {fg=darkcyan},
     WarningMsg = {fg=orange},
-    Question   = {fg=blue, style='bold'},
+    Question   = {fg=gray_7, style='bold'},
 
     --[[ 4.2.11. LSP / Diagnostics ]]
     DiagnosticError = 'Error',
