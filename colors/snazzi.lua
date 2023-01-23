@@ -1042,13 +1042,14 @@ local highlight_groups = {
     packerSuccess = function(self) return {fg=green, style=self.packerFail.style} end,
 
     --[[ 4.4.18. nvim-tree ]]
-    NvimTreeGitDeleted = function(self) return {fg=self.DiffDelete.bg} end,
-    NvimTreeGitDirty = {fg=orange},
+    NvimTreeGitDeleted = 'DiffDelete',
+    NvimTreeGitDirty = 'DiffChange',
     NvimTreeGitIgnored = 'Ignore',
     NvimTreeGitMerge = 'NvimTreeGitRenamed',
-    NvimTreeGitNew = function(self) return {fg=self.DiffAdd.bg} end,
-    NvimTreeGitRenamed = function(self) return {fg=self.DiffChange.bg} end,
-    NvimTreeGitStaged = {fg=cyan},
+    NvimTreeGitNew = {fg=cyan},
+    NvimTreeGitRenamed = 'DiffChanged',
+    NvimTreeGitStaged = {fg=green},
+    NvimTreeSpecialFile = {fg=yellow, style={'bold', 'underline'}},
 
     --[[ 4.4.19. symbols-outline.nvim ]]
     FocusedSymbol = {},
