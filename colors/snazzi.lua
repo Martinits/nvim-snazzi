@@ -125,12 +125,17 @@ local foreground     = {'#EFF0Eb', 253, 'white'}
 local red            = {'#FF4848', 203, 'red'}
 local light_red      = {'#F36E7A', 203, 'red'}
 local yellow         = {'#F3F99D', 229, 'yellow'}
+local more_yellow    = {'#EFF027', 229, 'yellow'}
 local green          = {'#5AF78E',  84, 'green'}
 local light_green    = {'#9EEDA7',  84, 'green'}
+local more_green     = {'#31ED2D',  84, 'green'}
 local blue           = {'#57C7FF',  81, 'blue'}
+local more_blue      = {'#4DA0FF',  81, 'blue'}
 local cyan           = {'#9AEDFE', 117, 'cyan'}
 local purple         = {'#FF6AC1', 205, 'purple'}
+local light_purple   = {'#E7ACDF', 205, 'purple'}
 local orange         = {'#FF9F43', 214, 'orange'}
+local light_orange   = {'#FCC95D', 214, 'orange'}
 local brown          = {'#B2643C', 172, 'brown'}
 local pink           = {'#F46E95', 217, 'pink'}
 
@@ -160,7 +165,7 @@ local disabled       = {'#464B5D',  60, 'grey'}
 local darkred = {'#880506'}
 local darkgreen = {'#046406'}
 local darkyellow = {'#EED202'}
-local darkblue = {'#2B70D8'}
+local darkblue = {'#1863D4'}
 local darkmagenta = {'#88058A'}
 local darkcyan = {'#04898A'}
 local darkorange = {'#BB6A04'}
@@ -904,15 +909,27 @@ local highlight_groups = {
     --[[ 4.4.8. nvim-treesitter ]]
     ['@constant.builtin'] = '@constant',
     ['@constant.macro'] = '@define',
-    ['@constructor'] = '@function',
-    ['@function.builtin'] = '@function',
+    ['@constructor'] = { fg = darkblue },
+    ['@function.builtin'] = { fg = cyan },
     ['@function.macro'] = '@macro',
-    ['@namespace'] = 'Directory',
+    ['@function.call'] = '@function',
     ['@string.escape'] = '@string.special',
     ['@tag'] = 'Tag',
     ['@text.danger'] = 'ErrorMsg',
     ['@text.uri'] = '@test.underlined',
     ['@text.warning'] = 'WarningMsg',
+    ['@variable.builtin'] = { fg = light_red, style = 'italic' },
+    ['@namespace'] = 'Include',
+    ['@type.qualifier'] = { fg = more_yellow, style = 'bold' },
+    ['@storageclass'] = { fg = darkyellow, style = 'bold' },
+    ['@field'] = { fg = light_orange },
+    ['@property'] = { fg = blue },
+    ['@keyword.function'] = 'Keyword',
+    ['@keyword.return'] = 'Keyword',
+    ['@keyword.operator'] = 'Operator',
+    ['@method'] = { fg = more_blue },
+    ['@method.call'] = '@function.call',
+    ['@parameter'] = { fg = light_orange },
 
     --[[ 4.4.9. barbar.nvim ]]
     BufferAlternate       = function(self) return {fg = self.BufferVisible.fg, bg = gray_9} end,
