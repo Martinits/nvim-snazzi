@@ -132,6 +132,9 @@ local more_green     = {'#31ED2D',  84, 'green'}
 local blue           = {'#57C7FF',  81, 'blue'}
 local more_blue      = {'#4DA0FF',  81, 'blue'}
 local cyan           = {'#9AEDFE', 117, 'cyan'}
+local light_cyan     = {'#BEFFF9', 117, 'cyan'}
+local more_cyan      = {'#56F5E0', 117, 'cyan'}
+local dark_cyan      = {'#09E8B8', 117, 'cyan'}
 local purple         = {'#FF6AC1', 205, 'purple'}
 local light_purple   = {'#E7ACDF', 205, 'purple'}
 local orange         = {'#FF9F43', 214, 'orange'}
@@ -923,7 +926,7 @@ local highlight_groups = {
     ['@type.qualifier'] = { fg = more_yellow, style = 'bold' },
     ['@storageclass'] = { fg = darkyellow, style = 'bold' },
     ['@field'] = { fg = light_orange },
-    ['@property'] = { fg = blue },
+    ['@property'] = { fg = dark_cyan },
     ['@keyword.function'] = 'Keyword',
     ['@keyword.return'] = 'Keyword',
     ['@keyword.operator'] = 'Operator',
