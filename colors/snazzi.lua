@@ -121,6 +121,7 @@ vim.g.colors_name = 'snazzi'
 --local purple_light = {'#af60af', 133, 'darkmagenta'}
 
 local background     = {'#282A36', 237, 'black'}
+local bg_lighter     = {'#2F323F', 237, 'black'}
 local foreground     = {'#EFF0Eb', 253, 'white'}
 local red            = {'#FF4848', 203, 'red'}
 local light_red      = {'#F36E7A', 203, 'red'}
@@ -405,7 +406,7 @@ local highlight_groups = {
     SpellRare  = {fg=purple, style={'underline', 'italic'}},
 
     --[[ 4.2.9. Conditional Column Highlighting]]
-    ColorColumn = {bg=gray_3},
+    ColorColumn = {bg=bg_lighter},
     SignColumn  = {fg=foreground},
 
     --[[ 4.2.10. Messages]]
