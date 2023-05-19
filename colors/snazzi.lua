@@ -124,24 +124,25 @@ local background     = {'#282A36', 237, 'black'}
 local bg_lighter     = {'#2F323F', 237, 'black'}
 local foreground     = {'#EFF0Eb', 253, 'white'}
 local red            = {'#FF4848', 203, 'red'}
-local light_red      = {'#F36E7A', 203, 'red'}
+local red_light      = {'#F36E7A', 203, 'red'}
 local yellow         = {'#F3F99D', 229, 'yellow'}
-local more_yellow    = {'#EFF027', 229, 'yellow'}
+local yellow_more    = {'#EFF027', 229, 'yellow'}
 local green          = {'#5AF78E',  84, 'green'}
-local light_green    = {'#9EEDA7',  84, 'green'}
-local more_green     = {'#31ED2D',  84, 'green'}
+local green_light    = {'#9EEDA7',  84, 'green'}
+local green_blue     = {'#31ED2D',  84, 'green'}
 local blue           = {'#57C7FF',  81, 'blue'}
-local more_blue      = {'#4DA0FF',  81, 'blue'}
+local blue_more      = {'#4DA0FF',  81, 'blue'}
 local cyan           = {'#9AEDFE', 117, 'cyan'}
-local light_cyan     = {'#BEFFF9', 117, 'cyan'}
-local more_cyan      = {'#56F5E0', 117, 'cyan'}
-local dark_cyan      = {'#09E8B8', 117, 'cyan'}
+local cyan_light     = {'#BEFFF9', 117, 'cyan'}
+local cyan_more      = {'#56F5E0', 117, 'cyan'}
+local cyan_dark      = {'#09E8B8', 117, 'cyan'}
 local purple         = {'#FF6AC1', 205, 'purple'}
-local light_purple   = {'#E7ACDF', 205, 'purple'}
+local purple_light   = {'#E7ACDF', 205, 'purple'}
 local orange         = {'#FF9F43', 214, 'orange'}
-local light_orange   = {'#FCC95D', 214, 'orange'}
+local orange_light   = {'#FCC95D', 214, 'orange'}
 local brown          = {'#B2643C', 172, 'brown'}
 local pink           = {'#F46E95', 217, 'pink'}
+local pink_light     = {'#FFA2B7', 217, 'pink'}
 
 local gray_0         = {'#F9F9F9', 254, 'white'}
 local gray_1         = {'#F9F9FF', 254, 'white'}
@@ -301,13 +302,13 @@ local highlight_groups = {
     --[[ 4.1.1. Literals]]
     Constant = {fg=green},
     String = {fg=orange, style='italic'},
-    Character = {fg=light_red},
+    Character = {fg=red_light},
     Number  = {fg=pink},
     Boolean = {fg=purple},
     Float   = {fg=pink},
 
     --[[ 4.1.2. Identifiers]]
-    Identifier = {fg=light_green},
+    Identifier = {fg=green_light},
     Function = {fg=blue, style='bold'},
 
     --[[ 4.1.3. Syntax]]
@@ -324,13 +325,13 @@ local highlight_groups = {
     PreProc = {fg=red},
     Include = {fg=blue},
     Define = {fg=purple},
-    Macro  = {fg=light_red},
+    Macro  = {fg=red_light},
     PreCondit = {fg=purple},
 
     --[[ 4.1.5. Semantics]]
     Type         = {fg=yellow, style='bold'},
     StorageClass = {fg=yellow, style='bold'},
-    Structure = {fg=purple, style='bold'},
+    Structure = {fg=pink_light, style='bold'},
     Typedef = {fg=darkyellow, style='bold'},
 
     --[[ 4.1.6. Edge Cases]]
@@ -922,18 +923,18 @@ local highlight_groups = {
     ['@text.danger'] = 'ErrorMsg',
     ['@text.uri'] = '@test.underlined',
     ['@text.warning'] = 'WarningMsg',
-    ['@variable.builtin'] = { fg = light_red, style = 'italic' },
+    ['@variable.builtin'] = { fg = red_light, style = 'italic' },
     ['@namespace'] = 'Include',
-    ['@type.qualifier'] = { fg = more_yellow, style = 'bold' },
+    ['@type.qualifier'] = { fg = yellow_more, style = 'bold' },
     ['@storageclass'] = { fg = darkyellow, style = 'bold' },
-    ['@field'] = { fg = light_orange },
-    ['@property'] = { fg = dark_cyan },
+    ['@field'] = { fg = orange_light },
+    ['@property'] = { fg = cyan_dark },
     ['@keyword.function'] = 'Keyword',
     ['@keyword.return'] = 'Keyword',
     ['@keyword.operator'] = 'Operator',
-    ['@method'] = { fg = more_blue },
+    ['@method'] = { fg = blue_more },
     ['@method.call'] = '@function.call',
-    ['@parameter'] = { fg = light_orange },
+    ['@parameter'] = { fg = orange_light },
 
     --[[ 4.4.9. barbar.nvim ]]
     BufferAlternate       = function(self) return {fg = self.BufferVisible.fg, bg = gray_9} end,
