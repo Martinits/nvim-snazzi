@@ -143,6 +143,7 @@ local orange_light   = {'#FCC95D', 214, 'orange'}
 local brown          = {'#B2643C', 172, 'brown'}
 local pink           = {'#F46E95', 217, 'pink'}
 local pink_soft      = {'#DC7568', 217, 'pink'}
+local light_brick    = {'#DD8764', 217, 'pink'}
 
 local gray_0         = {'#F9F9F9', 254, 'white'}
 local gray_1         = {'#F9F9FF', 254, 'white'}
@@ -331,7 +332,7 @@ local highlight_groups = {
     --[[ 4.1.5. Semantics]]
     Type         = {fg=yellow, style='bold'},
     StorageClass = {fg=yellow, style='bold'},
-    Structure = {fg=pink_soft, style='bold'},
+    Structure = {fg=light_brick, style='bold'},
     Typedef = {fg=darkyellow, style='bold'},
 
     --[[ 4.1.6. Edge Cases]]
