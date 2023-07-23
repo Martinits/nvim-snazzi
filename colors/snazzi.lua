@@ -144,6 +144,7 @@ local brown          = {'#B2643C', 172, 'brown'}
 local pink           = {'#F46E95', 217, 'pink'}
 local pink_soft      = {'#DC7568', 217, 'pink'}
 local light_brick    = {'#DD8764', 217, 'pink'}
+local slate          = {'#6E8580', 247, 'grey'}
 
 local gray_0         = {'#F9F9F9', 254, 'white'}
 local gray_1         = {'#F9F9FF', 254, 'white'}
@@ -296,7 +297,7 @@ local highlight_group_normal = {fg=foreground, bg=background}
 local highlight_groups = {
     --[[ 4.1. Text Analysis ]]
     Comment = {fg=gray_8, style='italic'},
-    NonText = {fg=gray_6},
+    NonText = {fg=slate, style={'italic', 'bold'}},
     EndOfBuffer = {fg=invisibles},
     Whitespace  = 'NonText',
 
