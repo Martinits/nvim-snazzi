@@ -14,7 +14,8 @@
 --[[/* Vars */]]
 
 --- Which set of colors to use.
-local _USE_256 = tonumber(vim.go.t_Co) > 255 or string.find(vim.env.TERM, '256')
+-- local _USE_256 = tonumber(vim.go.t_Co) > 255 or string.find(vim.env.TERM, '256')
+local _USE_256 = true -- nvim >=0.10 does not has t_Co variable anymore
 
 --- Which index to use for `cterm` highlights.
 local _PALETTE_CTERM = _USE_256 and 2 or 3
