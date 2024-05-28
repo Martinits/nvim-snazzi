@@ -46,7 +46,7 @@ local lush = require('lush')
 local hsl = lush.hsl
 
 -- Colors
-local background     = hsl('#283A36')
+local background     = hsl('#282A36')
 local bg_lighter     = hsl('#2F323F')
 local foreground     = hsl('#EFF0Eb')
 local red            = hsl('#FF4848')
@@ -304,28 +304,45 @@ local theme = lush(function(injected_functions)
     --
     -- For more information see https://github.com/rktjmp/lush.nvim/issues/109
 
-    sym'@constant.builtin' {sym'@constant'},
-    sym'@constant.macro'   {sym'@define'},
-    sym'@constructor'      {fg = darkblue},
-    sym'@function.builtin' {fg = cyan},
-    sym'@function.macro'   {sym'@macro'},
-    sym'@function.call'    {sym'@function'},
-    sym'@string.escape'    {sym'@string.special'},
-    sym'@tag'              {sym'Tag'},
-    sym'@text.danger'      {sym'ErrorMsg'},
-    sym'@text.uri'         {sym'@test.underlined'},
-    sym'@text.warning'     {sym'WarningMsg'},
-    sym'@variable.builtin' {fg = red_light, style = 'italic' },
-    sym'@namespace'        {sym'Include'},
-    sym'@type.qualifier'   {fg = yellow_more, style = 'bold' },
-    sym'@storageclass'     {fg = darkyellow, style = 'bold'},
-    sym'@field'            {fg = orange_light },
-    sym'@property'         {fg = cyan_dark },
-    sym'@keyword.function' {sym'Keyword'},
-    sym'@keyword.return'   {sym'Keyword'},
-    sym'@keyword.operator' {sym'Operator'},
-    sym'@method'           {fg = blue_more },
-    sym'@method.call'      {sym'@function.call'},
+    -- sym'@constant.builtin' {sym'@constant'},
+    -- sym'@constant.macro'   {sym'@define'},
+    sym'@constructor'      {fg=darkblue},
+    sym'@function.builtin' {fg=cyan},
+    -- sym'@function.macro'   {sym'@macro'},
+    -- sym'@function.call'    {sym'@function'},
+    -- sym'@string.escape'    {sym'@string.special'},
+    sym'@tag'              {Tag},
+    sym'@text.danger'      {ErrorMsg},
+    -- sym'@text.uri'         {sym'@test.underlined'},
+    sym'@text.warning'     {WarningMsg},
+    sym'@variable.builtin' {fg=red_light, gui='italic'},
+    sym'@namespace'        {Include},
+    sym'@type.qualifier'   {fg=yellow_more, gui='bold'},
+    sym'@storageclass'     {fg=darkyellow, gui='bold'},
+    sym'@field'            {fg=orange_light},
+    sym'@property'         {fg=cyan_dark},
+    sym'@keyword.function' {Keyword},
+    sym'@keyword.return'   {Keyword},
+    sym'@keyword.operator' {Operator},
+    sym'@method'           {fg=blue_more},
+    -- sym'@method.call'      {sym'@function.call'},
+
+    -- Plugins Highlights
+
+    -- gitsigns.nvim
+    GitSignsAdd    {fg=green},
+    GitSignsChange {fg=yellow},
+    GitSignsDelete {fg=red},
+
+    --[[ 4.4.18. nvim-tree ]]
+    NvimTreeGitDeleted  {fg=red},
+    NvimTreeGitDirty    {fg=orange},
+    NvimTreeGitIgnored  {Ignore},
+    NvimTreeGitRenamed  {fg=brown},
+    NvimTreeGitMerge    {NvimTreeGitRenamed},
+    NvimTreeGitNew      {fg=cyan},
+    NvimTreeGitStaged   {fg=green},
+    NvimTreeSpecialFile {fg=yellow, gui='bold,underline'},
 }
 end)
 
