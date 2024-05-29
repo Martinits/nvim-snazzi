@@ -52,21 +52,27 @@ local foreground     = hsl('#EFF0Eb')
 local red            = hsl('#FF4848')
 local red_light      = hsl('#F36E7A')
 local yellow         = hsl('#F3F99D')
+local yellow_dim     = hsl('#DBE180')
 local yellow_more    = hsl('#EFF027')
-local green          = hsl('#5AF78E')
-local green_light    = hsl('#9EEDA7')
-local green_blue     = hsl('#31ED2D')
+local green          = hsl('#59F78E')
+local green_dim      = hsl('#A7DBAD')
+local green_light    = hsl('#7EF1A5')
+local green_more     = hsl('#54f251')
 local blue           = hsl('#57C7FF')
+local blue_light     = hsl('#97DBFD')
 local blue_more      = hsl('#4DA0FF')
 local cyan           = hsl('#9AEDFE')
 local cyan_light     = hsl('#BEFFF9')
-local cyan_more      = hsl('#56F5E0')
-local cyan_dark      = hsl('#09E8B8')
+local cyan_more1     = hsl('#56F5E0')
+local cyan_more2     = hsl('#09E8B8')
 local purple         = hsl('#FF6AC1')
 local purple_light   = hsl('#E7ACDF')
 local orange         = hsl('#FF9F43')
-local orange_light   = hsl('#FCC95D')
+local orange_soft    = hsl('#DFA66F')
+local orange_light1  = hsl('#FCC95D')
+local orange_light2  = hsl('#F1D661')
 local brown          = hsl('#B2643C')
+local brown_light    = hsl('#CF9A7E')
 local pink           = hsl('#F46E95')
 local pink_soft      = hsl('#DC7568')
 local light_brick    = hsl('#DD8764')
@@ -209,12 +215,12 @@ local theme = lush(function(injected_functions)
     Boolean        {fg=purple},                        -- A boolean constant: TRUE, false
     Float          {fg=pink},                          -- A floating point constant: 2.3e10
 
-    Identifier     {fg=green_light},                   -- (*) Any variable name
+    Identifier     {fg=green_dim},                   -- (*) Any variable name
     Function       {fg=blue, gui='bold'},              -- Function name (also: methods for classes)
 
     Statement      {fg=red, gui='bold'},               -- (*) Any statement
     Conditional    {fg=purple, gui='bold'},            -- if, then, else, endif, switch, etc.
-    Repeat         {fg=yellow, gui='bold'},            -- for, do, while, etc.
+    Repeat         {fg=orange_light2, gui='bold'},            -- for, do, while, etc.
     Label          {fg=yellow, gui='bold'},            -- case, default, etc.
     Operator       {fg=cyan, gui='bold'},              -- "sizeof", "+", "*", etc.
     Keyword        {fg=purple, gui='bold'},            -- any other keyword
@@ -226,22 +232,22 @@ local theme = lush(function(injected_functions)
     Macro          {fg=red_light},                     -- Same as Define
     PreCondit      {fg=purple},                        -- Preprocessor #if, #else, #endif, etc.
 
-    Type           {fg=yellow, gui='bold'},            -- (*) int, long, char, etc.
-    StorageClass   {fg=yellow, gui='bold'},            -- static, register, volatile, etc.
+    Type           {fg=yellow_dim, gui='bold'},        -- (*) int, long, char, etc.
+    StorageClass   {fg=darkyellow, gui='bold'},        -- static, register, volatile, etc.
     Structure      {fg=light_brick, gui='bold'},       -- struct, union, enum, etc.
     Typedef        {fg=darkyellow, gui='bold'},        -- A typedef
 
-    Special        {fg=blue, gui='italic'},            -- (*) Any special symbol
+    Special        {fg=pink_soft, gui='italic'},            -- (*) Any special symbol
     SpecialChar    {fg=yellow},                        -- Special character in a constant
     Tag            {fg=purple},                        -- You can use CTRL-] on this
-    Delimiter      {fg=orange},                        -- Character that needs attention
+    Delimiter      {fg=gray_4},                 -- Character that needs attention
     SpecialComment {fg=brown},                         -- Special things inside a comment (e.g. '\n')
     Debug          {fg=red},                           -- Debugging statements
 
     Underlined     {fg=blue, gui='underline'},         -- Text that stands out, HTML links
     Ignore         {fg=gray_6},                        -- Left blank, hidden |hl-Ignore| (NOTE: May be invisible here in template)
     Error          {fg=darkred, gui='bold'},           -- Any erroneous construct
-    Todo           {fg=darkyellow, gui='italic,bold'}, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+    Todo           {fg=darkyellow, gui='bold'}, -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
     Hint           {fg=darkgreen, gui='bold'},
     Info           {fg=darkblue, gui='bold'},
     Warning        {fg=darkorange, gui='bold'},
@@ -304,28 +310,119 @@ local theme = lush(function(injected_functions)
     --
     -- For more information see https://github.com/rktjmp/lush.nvim/issues/109
 
-    -- sym'@constant.builtin' {sym'@constant'},
-    -- sym'@constant.macro'   {sym'@define'},
-    sym'@constructor'      {fg=darkblue},
-    sym'@function.builtin' {fg=cyan},
-    -- sym'@function.macro'   {sym'@macro'},
-    -- sym'@function.call'    {sym'@function'},
-    -- sym'@string.escape'    {sym'@string.special'},
-    sym'@tag'              {Tag},
-    sym'@text.danger'      {ErrorMsg},
-    -- sym'@text.uri'         {sym'@test.underlined'},
-    sym'@text.warning'     {WarningMsg},
-    sym'@variable.builtin' {fg=red_light, gui='italic'},
-    sym'@namespace'        {Include},
-    sym'@type.qualifier'   {fg=yellow_more, gui='bold'},
-    sym'@storageclass'     {fg=darkyellow, gui='bold'},
-    sym'@field'            {fg=orange_light},
-    sym'@property'         {fg=cyan_dark},
-    sym'@keyword.function' {Keyword},
-    sym'@keyword.return'   {Keyword},
-    sym'@keyword.operator' {Operator},
-    sym'@method'           {fg=blue_more},
-    -- sym'@method.call'      {sym'@function.call'},
+    sym"@variable" {Identifier},                                   -- various variable names
+    sym"@variable.builtin" {fg=red_light, gui='italic'},           -- built-in variable names (e.g. `this`)
+    sym"@variable.parameter" {Identifier},                         -- parameters of a function
+    sym"@variable.parameter.builtin" {fg=red_light, gui='italic'}, -- special parameters (e.g. `_`, `it`)
+    sym"@variable.member" {fg=cyan_more2},                         -- object and struct fields
+
+    sym"@constant" {Constant},                           -- constant identifiers
+    sym"@constant.builtin" {fg=green_light, gui='bold'}, -- built-in constant values
+    sym"@constant.macro" {Macro},                        -- constants defined by the preprocessor
+
+    sym"@module" {fg=light_brick, gui='bold'},         -- modules or namespaces
+    sym"@module.builtin" {fg=brown_light, gui='bold'}, -- built-in modules or namespaces
+    sym"@label" {Label},                               -- GOTO and other labels (e.g. `label:` in C), including heredoc labels
+
+    sym"@string" {String},                                          -- string literals
+    sym"@string.documentation" {fg=orange_light1},                  -- string documenting code (e.g. Python docstrings)
+    sym"@string.regexp" {SpecialChar},                              -- regular expressions
+    sym"@string.escape" {SpecialChar},                              -- escape sequences
+    sym"@string.special" {SpecialChar},                             -- other special strings (e.g. dates)
+    sym"@string.special.symbol" {SpecialChar},                      -- symbols or atoms
+    sym"@string.special.url" {fg=SpecialChar.fg, gui='underline'},  -- URIs (e.g. hyperlinks)
+    sym"@string.special.path" {fg=SpecialChar.fg, gui='underline'}, -- filenames
+
+    sym"@type" {Type},                             -- type or class definitions and annotations
+    sym"@type.builtin" {Type},                     -- built-in types
+    sym"@type.definition" {fg=yellow, gui='bold'}, -- identifiers in type definitions (e.g. `typedef <type> <identifier>` in C)
+
+    sym"@attribute" {fg=Special.fg, gui='bold.italic'}, -- attribute annotations (e.g. Python decorators, Rust lifetimes)
+    sym"@attribute.builtin" {sym"@attribute"},          -- builtin annotations (e.g. `@property` in Python)
+    sym"@property" {fg=cyan_more2},                     -- the key in key/value pairs
+
+    sym"@character" {Character},       -- character literals
+    sym"@character.special" {Special}, -- special characters (e.g. wildcards)
+
+    sym"@boolean" {Boolean},    -- boolean literals
+    sym"@number" {Number},      -- numeric literals
+    sym"@number.float" {Float}, -- floating-point number literals
+
+    sym"@function" {fg=blue_more, gui='bold'}, -- function definitions
+    sym"@function.builtin" {fg=cyan},          -- built-in functions
+    sym"@function.call" {Function},            -- function calls
+    sym"@function.macro" {Macro},              -- preprocessor macros
+
+    sym"@function.method" {fg=blue_more, gui='bold'}, -- method definitions
+    sym"@function.method.call" {Function},            -- method calls
+
+    sym"@constructor" {fg=darkblue}, -- constructor calls and definitions
+    sym"@operator" {Operator},       -- symbolic op
+
+    sym"@keyword" {Keyword},                                    -- keywords not fitting into specific categories
+    sym"@keyword.coroutine" {Keyword},                          -- keywords related to coroutines (e.g. `go` in Go, `async/await` in Python)
+    sym"@keyword.function" {Keyword},                           -- keywords that define a function (e.g. `func` in Go, `def` in Python)
+    sym"@keyword.operator" {Operator},                          -- operators that are English words (e.g. `and` / `or`)
+    sym"@keyword.import" {Keyword},                             -- keywords for including or exporting modules (e.g. `import` / `from` in Python)
+    sym"@keyword.type" {Keyword},                               -- keywords describing namespaces and composite types (e.g. `struct`, `enum`)
+    sym"@keyword.modifier" {fg=orange_soft, gui='bold,italic'}, -- keywords modifying other constructs (e.g. `const`, `static`, `public`)
+    sym"@keyword.repeat" {Repeat},                              -- keywords related to loops (e.g. `for` / `while`)
+    sym"@keyword.return" {Keyword},                             -- keywords like `return` and `yield`
+    sym"@keyword.debug" {Keyword},                              -- keywords related to debugging
+    sym"@keyword.exception" {Exception},                        -- keywords related to exceptions (e.g. `throw` / `catch`)
+    sym"@keyword.conditional" {Conditional},                    -- keywords related to conditionals (e.g. `if` / `else`)
+    sym"@keyword.conditional.ternary" {Operator},               -- ternary operator (e.g. `?` / `:`)
+    sym"@keyword.directive" {Special},                          -- various preprocessor directives & shebangs
+    sym"@keyword.directive.define" {Define},                    -- preprocessor definition directiveserators (e.g. `+` / `*`)
+
+    sym"@punctuation.delimiter" {Delimiter}, -- delimiters (e.g. `;` / `.` / `,`)
+    -- sym"@punctuation.bracket" {},            -- brackets (e.g. `()` / `{}` / `[]`)
+    sym"@punctuation.special" {Special},     -- special symbols (e.g. `{}` in string interpolation)
+
+    sym"@comment" {Comment},                -- line and block comments
+    sym"@comment.documentation" {fg=slate}, -- comments documenting code
+    sym"@comment.error" {ErrorMsg},         -- error-type comments (e.g. `ERROR`, `FIXME`, `DEPRECATED`)
+    sym"@comment.warning" {WarningMsg},     -- warning-type comments (e.g. `WARNING`, `FIX`, `HACK`)
+    -- sym"@comment.todo" {},               -- todo-type comments (e.g. `TODO`, `WIP`)
+    sym"@comment.note" {HintMsg},           -- note-type comments (e.g. `NOTE`, `INFO`, `XXX`)
+
+    sym"@markup.strong" {fg=Normal.fg, gui='bold'},                    -- bold text
+    sym"@markup.italic" {fg=Normal.fg, gui='italic'},                  -- italic text
+    sym"@markup.strikethrough" {fg=Normal.fg, gui='strikethrough'},    -- struck-through text
+    sym"@markup.underline" {fg=Normal.fg, gui='underline'},            -- underlined text (only for literal underline markup!)
+    sym"@markup.heading" {fg=cyan_more2, gui='bold'},                  -- headings, titles (including markers)
+    sym"@markup.heading.1" {fg=cyan_more1, gui='bold'},                -- top-level heading
+    sym"@markup.heading.2" {fg=cyan_more2, gui='bold'},                -- section heading
+    sym"@markup.heading.3" {fg=blue},                                  -- subsection heading
+    sym"@markup.heading.4" {fg=cyan},                                  -- and so on
+    sym"@markup.heading.5" {fg=Normal.fg},                             -- and so forth
+    sym"@markup.heading.6" {fg=Normal.fg},                             -- six levels ought to be enough for anybody
+    sym"@markup.quote" {fg=slate},                                     -- block quotes
+    sym"@markup.math" {fg=purple, gui='bold'},                         -- math environments (e.g. `$ ... $` in LaTeX)
+    sym"@markup.link" {fg=green_dim, gui='underline'},                 -- text references, footnotes, citations, etc.
+    sym"@markup.link.label" {fg=orange_light1},                        -- link, reference descriptions
+    sym"@markup.link.url" {fg=SpecialChar.fg, gui='underline'},        -- URL-style links
+    sym"@markup.raw" {String},                                         -- literal or verbatim text (e.g. inline code)
+    sym"@markup.raw.block" {Normal},                                   -- literal or verbatim text as a stand-alone block
+                                                                       -- (use priority 90 for blocks with injections)
+    sym"@markup.list" {Special},                                       -- list markers
+    sym"@markup.list.checked" {Todo},                                  -- checked todo-style list markers
+    sym"@markup.list.unchecked" {fg=Todo.fg, gui='bold,italic'},       -- unchecked todo-style list markers
+
+    sym"@diff.plus" {DiffAdd},     -- added text (for diff files)
+    sym"@diff.minus" {DiffDelete}, -- deleted text (for diff files)
+    sym"@diff.delta" {DiffChange}, -- changed text (for diff files)
+
+    sym"@tag" {Tag},                 -- XML-style tag names (and similar)
+    sym"@tag.builtin" {sym"@tag"},   -- builtin tag names (e.g. HTML5 tags)
+    sym"@tag.attribute" {sym"@tag"}, -- XML-style tag attributes
+    sym"@tag.delimiter" {sym"@tag"}, -- XML-style tag delimiters
+
+    sym"@none" {Normal},           -- completely disable the highlight
+    sym"@conceal" {fg=invisibles}, -- captures that are only meant to be concealed
+    sym"@spell" {},                -- for defining regions to be spellchecked
+    sym"@nospell" {},              -- for defining regions that should NOT be spellchecked
+
 
     -- Plugins Highlights
 
@@ -374,14 +471,6 @@ local theme = lush(function(injected_functions)
     CmpItemKindUnit          {CmpItemKindStruct},
     CmpItemKindValue         {CmpItemKindConstant},
     CmpItemKindVariable      {Identifier},
-
-    -- lspsaga.nvim
-    DefinitionCount {Number},
-    DefinitionIcon  {Special},
-    ReferencesCount {Number},
-    ReferencesIcon  {DefinitionIcon},
-    TargetFileName  {Directory},
-    TargetWord      {Title},
 
     -- todo-comments.nvim
     TodoFgFIX    {fg=ErrorMsg.fg},
