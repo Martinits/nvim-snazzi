@@ -1,5 +1,9 @@
-A Lush Theme for Neovim.
-===
+# nvim-snazzi
 
-See: http://git.io/lush.nvim for more information on Lush and a helper script
-to setup your repo clone.
+A snazzy Neovim colortheme built with [lush.nvim](https://github.com/rktjmp/lush.nvim).
+Install lush.nvim as a dependency of this theme.
+
+## References
+
+- [vim-snazzy](https://github.com/connorholyday/vim-snazzy)
+- [snazzybuddy.nvim](https://github.com/bbenzikry/snazzybuddy.nvim)
