@@ -427,9 +427,24 @@ local theme = lush(function(injected_functions)
     -- Plugins Highlights
 
     -- gitsigns.nvim
-    GitSignsAdd    {fg=green},
-    GitSignsChange {fg=yellow},
-    GitSignsDelete {fg=red},
+    GitSignsAdd            {fg=green},
+    GitSignsAddNr          {GitSignsAdd},
+    GitSignsAddLn          {GitSignsAdd},
+    GitSignsChange         {fg=yellow},
+    GitSignsChangeNr       {GitSignsChange},
+    GitSignsChangeLn       {GitSignsChange},
+    GitSignsDelete         {fg=red},
+    GitSignsDeleteNr       {GitSignsDelete},
+    GitSignsDeleteLn       {GitSignsDelete},
+    GitSignsChangedelete   {GitSignsDelete},
+    GitSignsChangedeleteNr {GitSignsChangedelete},
+    GitSignsChangedeleteLn {GitSignsChangedelete},
+    GitSignsTopdelete      {GitSignsDelete},
+    GitSignsTopdeleteNr    {GitSignsTopdelete},
+    GitSignsTopdeleteLn    {GitSignsTopdelete},
+    GitSignsUntracked      {fg=invisibles},
+    GitSignsUntrackedNr    {GitSignsUntracked},
+    GitSignsUntrackedLn    {GitSignsUntracked},
 
     -- nvim-tree
     NvimTreeGitDeleted  {fg=red},
