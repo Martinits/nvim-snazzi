@@ -193,8 +193,8 @@ local theme = lush(function(injected_functions)
     Whitespace     {NonText},                                           -- "nbsp", "space", "tab" and "trail" in 'listchars'
     -- Winseparator   { },                                                 -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
     WildMenu       {fg=gray_5, bg=darkmagenta, gui='bold'},             -- Current match in 'wildmenu' completion
-    -- WinBar         { },                                                 -- Window bar of current window
-    -- WinBarNC       { },                                                 -- Window bar of not-current windows
+    WinBar         {bg=background},                                                 -- Window bar of current window
+    WinBarNC       {bg=background},                                                 -- Window bar of not-current windows
     HintMsg        {fg=green},
     InfoMsg        {fg=blue},
 
